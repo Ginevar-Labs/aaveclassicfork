@@ -8,6 +8,7 @@ import { Spacer } from '@nextui-org/react';
 import { Container } from '@nextui-org/react';
 import { Image } from '@nextui-org/react';
 import { Badge } from "@nextui-org/react";
+import tokenList from '../tokenList.json'
 
 export const Hero = () => {
 
@@ -44,13 +45,15 @@ export const Hero = () => {
            <Table.Column>Borrow APY (Fixed)</Table.Column>
          </Table.Header>
          <Table.Body>
-           <Table.Row key="1">
+         {tokenList?.map((token, index) => {
+            return (
+           <Table.Row key={index}>
              
              <Table.Cell css={{display:"flex"}}>
-                <Image width={50} height={50} src="https://app.aave.com/icons/tokens/dai.svg" alt="Dai" objectFit="contain"/>
+                <Image width={50} height={50} src={token.img} alt={token.ticker} objectFit="contain"/>
                 <Container css={{display:"flex", flexDirection:"column", margin:"auto"}}>
-                   <p>DAI</p> 
-                   <label>DAI Stablecoin</label> 
+                   <p>{token.ticker}</p> 
+                   <label>{token.name}</label> 
                    </Container>
              </Table.Cell>
              <Table.Cell>55.62M</Table.Cell>
@@ -59,63 +62,8 @@ export const Hero = () => {
              <Table.Cell>1.79%</Table.Cell>
              <Table.Cell>6.98%</Table.Cell>
            </Table.Row>
-           <Table.Row key="2">
-             
-             <Table.Cell css={{display:"flex"}}>
-                <Image width={50} height={50} src="https://app.aave.com/icons/tokens/aave.svg" alt="Dai" objectFit="contain"/>
-                <Container css={{display:"flex", flexDirection:"column", margin:"auto"}}>
-                   <p>AAVE</p> 
-                   <label>AAVE Protocol</label> 
-                   </Container>
-             </Table.Cell>
-             <Table.Cell>68.44K</Table.Cell>
-             <Table.Cell>8.4K</Table.Cell>
-             <Table.Cell>1.25%</Table.Cell>
-             <Table.Cell>1.64%</Table.Cell>
-             <Table.Cell>-</Table.Cell>
-           </Table.Row>
-           <Table.Row key="3">
-             <Table.Cell css={{display:"flex"}}>
-                <Image width={50} height={50} src="https://altcoinsbox.com/wp-content/uploads/2023/03/arbitrum-logo-750x750.webp" alt="Dai" objectFit="contain"/>
-                <Container css={{display:"flex", flexDirection:"column", margin:"auto"}}>
-                   <p>ARB</p> 
-                   <label>Arbitrum</label> 
-                   </Container>
-             </Table.Cell>
-             <Table.Cell>525.4K</Table.Cell>
-             <Table.Cell>174.9K</Table.Cell>
-             <Table.Cell>1.78%</Table.Cell>
-             <Table.Cell>2.14%</Table.Cell>
-             <Table.Cell>-</Table.Cell>
-           </Table.Row>
-           <Table.Row key="4">
-             <Table.Cell css={{display:"flex"}}>
-                <Image width={50} height={50} src="https://app.aave.com/icons/tokens/usdt.svg" alt="Dai" objectFit="contain"/>
-                <Container css={{display:"flex", flexDirection:"column", margin:"auto"}}>
-                   <p>USDT</p> 
-                   <label>USD Tether</label> 
-                   </Container>
-             </Table.Cell>
-             <Table.Cell>33.22M</Table.Cell>
-             <Table.Cell>28.19M</Table.Cell>
-             <Table.Cell>0.94%</Table.Cell>
-             <Table.Cell>1.02%</Table.Cell>
-             <Table.Cell>16.04%</Table.Cell>
-           </Table.Row>
-           <Table.Row key="5">
-             <Table.Cell css={{display:"flex"}}>
-                <Image width={50} height={50} src="https://app.aave.com/icons/tokens/cbeth.svg" alt="Dai" objectFit="contain"/>
-                <Container css={{display:"flex", flexDirection:"column", margin:"auto"}}>
-                   <p>cbETH</p> 
-                   <label>Coinbase Wrapped ETH</label> 
-                   </Container>
-             </Table.Cell>
-             <Table.Cell>22.81M</Table.Cell>
-             <Table.Cell>35.19M</Table.Cell>
-             <Table.Cell>1.94%</Table.Cell>
-             <Table.Cell>2.02%</Table.Cell>
-             <Table.Cell>24.04%</Table.Cell>
-           </Table.Row>
+            )
+          })}
          </Table.Body>
        </Table>
     </Container></>
