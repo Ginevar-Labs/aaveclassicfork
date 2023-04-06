@@ -162,7 +162,7 @@ const settingsContent = (
            <Table.Column></Table.Column>
            <Table.Column>Your Balance</Table.Column>
            <Table.Column>Amount Staked</Table.Column>
-           <Table.Column>PnL</Table.Column>
+           <Table.Column>Tokens Transacted</Table.Column>
            <Table.Column></Table.Column>
          </Table.Header>
 
@@ -171,7 +171,21 @@ const settingsContent = (
              <Table.Cell>Staking</Table.Cell>
              <Table.Cell>154.23K</Table.Cell>
              <Table.Cell>89.14K</Table.Cell>
-             <Table.Cell>0</Table.Cell>
+             <Table.Cell>
+             <Badge variant="flat">
+                  <img src={tokenList[5].img} alt="assetOnelogo" className='logo' width='15' />
+                  &nbsp;{tokenList[5].ticker}
+              </Badge>
+             <Badge variant="flat">
+                  <img src={tokenList[7].img} alt="assetOnelogo" className='logo' width='15' />
+                  &nbsp;{tokenList[7].ticker}
+              </Badge>
+
+             <Badge variant="flat">
+                  <img src={tokenList[1].img} alt="assetOnelogo" className='logo' width='15' />
+                  &nbsp;{tokenList[1].ticker}
+              </Badge>
+             </Table.Cell>
              <Table.Cell><Button color="secondary" auto flat href="#">
                   Unstake
                </Button>
