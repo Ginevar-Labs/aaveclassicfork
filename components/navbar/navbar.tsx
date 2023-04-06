@@ -15,11 +15,12 @@ export const Nav = ({onChange} : {onChange:any}) => {
    const {isDark, type} = useTheme();
    const [nav, setNav] = useState(0);
    const collapseItems = [
-      'Features',
-      'Customers',
-      'Pricing',
-      'Company',
-      'Legal',
+      'Markets',
+      'Deposit',
+      'Borrow',
+      'Dashboard',
+      'Swap',
+      'Stake',
    ];
    return (
       <Navbar
@@ -139,26 +140,22 @@ export const Nav = ({onChange} : {onChange:any}) => {
                         minWidth: '100%',
                      }}
                      href="#"
+                     onClick={() => {setNav(index);
+                                 onChange(index)}}
                   >
                      {item}
+
+
                   </Link>
                </Navbar.CollapseItem>
             ))}
             <Navbar.CollapseItem>
-               <Link
-                  color="inherit"
-                  css={{
-                     minWidth: '100%',
-                  }}
-                  target="_blank"
-                  href="https://github.com/Siumauricio/landing-template-nextui"
-               >
-                  <GithubIcon />
-               </Link>
-            </Navbar.CollapseItem>
-            <Navbar.CollapseItem>
                <Switch
+
+                  color="secondary"
                   checked={isDark}
+                  iconOn={<SunIcon filled />}
+                  iconOff={<MoonIcon filled />}
                   onChange={(e) =>
                      setTheme(e.target.checked ? 'dark' : 'light')
                   }
