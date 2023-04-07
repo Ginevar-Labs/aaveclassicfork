@@ -7,19 +7,27 @@ import {Flex} from '../styles/flex';
 import { Table } from '@nextui-org/react';
 import { Spacer } from '@nextui-org/react';
 import { Container } from '@nextui-org/react';
+import { SingleView } from './unused';
 import { Image } from '@nextui-org/react';
 import { Badge } from "@nextui-org/react";
 import tokenList from '../tokenList.json';
 import {icons} from '../navbar/icons';
 import { useState } from 'react';
+import {Chart} from 'chart.js/auto';
+import {Line} from 'react-chartjs-2';
 
 export const Hero = () => {
   const { setVisible, bindings } = useModal();
    const [activeToken, setActiveToken] = useState(0);
+   const [marketMode, setMarketMode] = useState(0)
+   //0 is all markets, 1 is single market
 
    return (
-     <><Container>
-      <Table bordered shadow={false} aria-label="My Markets" css={{height: "auto",minWidth: "100",}}>
+     <>
+     <Container>
+       <Spacer y={2} />
+        {marketMode==0 ? <>
+        <Table bordered shadow={false} aria-label="My Markets" css={{height: "auto",minWidth: "100",}}>
          <Table.Header>
            <Table.Column>0x8..8D3</Table.Column>
            <Table.Column>Total Market Size</Table.Column>
@@ -37,10 +45,9 @@ export const Hero = () => {
              <Table.Cell><Badge color="secondary">HEALTHY</Badge></Table.Cell>
            </Table.Row>
          </Table.Body>
-      </Table>
-
+        </Table>
        <Spacer y={2} />
-       <Table bordered shadow={false} aria-label="Markets table" css={{height: "auto",minWidth: "100%",}}>
+        <Table bordered shadow={false} aria-label="Markets table" css={{height: "auto",minWidth: "100%",}}>
          <Table.Header>
            <Table.Column>Asset</Table.Column>
            <Table.Column>Market Size</Table.Column>
@@ -60,7 +67,7 @@ export const Hero = () => {
                    <p >{token.ticker}</p> 
                    <label>{token.name}</label> 
                 </Container>
-                <Button auto light color={"secondary"} onPress={() => {setVisible(true);setActiveToken(index)}}>
+                <Button auto light color={"secondary"} css={{marginTop:"4px"}} onPress={() => {setVisible(true);setActiveToken(index);setMarketMode(1)}}>
                   {icons.activity}
                 </Button>
              </Table.Cell>
@@ -73,27 +80,8 @@ export const Hero = () => {
             )
           })}
          </Table.Body>
-       </Table>
-       <Modal
-        scroll
-        width="80%"
-        closeButton
-        aria-labelledby="modal-title"
-        aria-describedby="modal-description"
-        {...bindings}
-      >
-        <Modal.Header>
-          <Text id="modal-title" size={18}>
-            Reserve status for  {tokenList[activeToken].ticker}
-          </Text>
-        </Modal.Header>
-        <Modal.Body>
-          <Text id="modal-description">
-          </Text>
-        </Modal.Body>
-        <Modal.Footer>
-        </Modal.Footer>
-      </Modal>
+       </Table> </>
+       : <SingleView onChange={(id) => setMarketMode(id)}/>}
     </Container></>
    );
 };

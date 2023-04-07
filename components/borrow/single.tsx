@@ -25,7 +25,7 @@ import  'chart.js/auto'
 import { Chart,Line }            from 'react-chartjs-2'
 
 
-export const SingleView = ({onChange} : {onChange:any}) => {
+export const SingleBorrow = ({onChange} : {onChange:any}) => {
   const { setVisible, bindings } = useModal();
    const [activeToken, setActiveToken] = useState(0);
    const [activeChart, setActiveChart] = useState(0);
@@ -66,9 +66,9 @@ export const SingleView = ({onChange} : {onChange:any}) => {
      <><Container css={{textAlign: "center"}}>
           <Button auto ghost color="secondary" css={{position:"absolute"}} onClick={() => {
                   onChange(0);
-               }}>Back to all markets</Button>
+               }}>Back to all</Button>
           <Text id="modal-title" size={18}>
-            Reserve status for  {tokenList[activeToken].ticker} 
+            Borrow market for  {tokenList[activeToken].ticker} 
           </Text>
        <Spacer y={2} />
       <Table bordered shadow={false} aria-label="My Markets" css={{height: "auto",minWidth: "100",textAlign:"start"}}>
@@ -90,23 +90,29 @@ export const SingleView = ({onChange} : {onChange:any}) => {
       </Table>
        <Spacer y={1} />
        <Grid.Container gap={2} justify="center" css={{paddingLeft:"2.5em"}}>
-          <Grid xs={4}>
-            <Card css={{ mw: "330px" }}>
+          <Grid xs={6}>
+            <Card >
               <Card.Header>
-                <Text b>Deposit</Text>
+                <Text b>Borrow now</Text>
               </Card.Header>
               <Card.Divider />
               <Card.Body css={{ py: "$10" }}>
                 <Text>Deposit APY<Text css={{ float:"right" }}>2.01%</Text></Text>
                 <Text>Deposit APR<Text css={{ float:"right" }}>1.23%</Text></Text>
+                <Text>Borrowed<Text css={{ float:"right" }}>200.1M</Text></Text>
+                <Text>Total Collateral<Text css={{ float:"right" }}>387M</Text></Text>
+                <Text>Loan to Value<Text css={{ float:"right" }}>56%</Text></Text>
               </Card.Body>
-              <Card.Divider />
-              <Card.Footer>
+              <Card.Footer >
                 <Row justify="flex-end">
-                  <Button size="sm" light>
-                    Deposit
-                  </Button>
-                  <Button size="sm">Withdraw</Button>
+                  <Input 
+                  size="md"
+                  css={{  width:"inherit"}}
+                  bordered
+                    labelRight={tokenList[activeToken].ticker}  
+                    placeholder="Borrow Amount (Max 187.37M)" 
+                  />
+                  <Button css={{marginLeft:"1em"}} color="secondary" size="md">Borrow</Button>
                 </Row>
               </Card.Footer>
             </Card>
@@ -114,58 +120,28 @@ export const SingleView = ({onChange} : {onChange:any}) => {
           <Grid xs={4}>
             <Card css={{ mw: "330px" }}>
               <Card.Header>
-                <Text b>Stable borrowing</Text>
+                <Text b>Borrow Statistics</Text>
               </Card.Header>
               <Card.Divider />
               <Card.Body css={{ py: "$10" }}>
-                <Text>Borrow APY<Text css={{ float:"right" }}>2.01%</Text></Text>
-                <Text>Borrow APR<Text css={{ float:"right" }}>1.23%</Text></Text>
-                <Text>Share<Text css={{ float:"right" }}>1.7%</Text></Text>
+                <Text>Utilization Rate<Text css={{ float:"right" }}>2.01%</Text></Text>
+                <Text>Available Liquidity<Text css={{ float:"right" }}>1.23%</Text></Text>
+                <Text>Asset Price<Text css={{ float:"right" }}>1.7%</Text></Text>
+                <Text>Stable APY<Text css={{ float:"right" }}>1.23%</Text></Text>
+                <Text>Variable APY<Text css={{ float:"right" }}>1.7%</Text></Text>
+              <Card.Divider css={{ my: "$10" }}/>
+                <Text>Max LTV<Text css={{ float:"right" }}>80%</Text></Text>
+                <Text>Liquidation Threshold<Text css={{ float:"right" }}>92%</Text></Text>
               </Card.Body>
-              <Card.Divider />
-              <Card.Footer>
-                <Row justify="flex-end">
-                  <Button size="sm" color="secondary">
-                    Borrow
-                  </Button>
-                </Row>
-              </Card.Footer>
-            </Card>
-          </Grid>
-          <Grid xs={4}>
-            <Card css={{ mw: "330px" }}>
-              <Card.Header>
-                <Text b>Variable borrowing</Text>
-              </Card.Header>
-              <Card.Divider />
-              <Card.Body css={{ py: "$10" }}>
-                <Text>Borrow APY<Text css={{ float:"right" }}>2.01%</Text></Text>
-                <Text>Borrow APR<Text css={{ float:"right" }}>1.23%</Text></Text>
-                <Text>Share<Text css={{ float:"right" }}>98.3%</Text></Text>
-              </Card.Body>
-              <Card.Divider />
-              <Card.Footer>
-                <Row justify="flex-end">
-                  <Button size="sm" color="secondary">
-                    Borrow
-                  </Button>
-                </Row>
-              </Card.Footer>
             </Card>
           </Grid>
         </Grid.Container>
        
        <Spacer y={2} />
-          <Button.Group auto color="gradient" ghost>
+          <Button.Group auto color="gradient" solid>
             <Button onClick={() => {
                   setActiveChart(0);
-               }}>Stable vs Variable</Button>
-            <Button onClick={() => {
-                  setActiveChart(1);
-               }}>Deposit APR</Button>
-            <Button onClick={() => {
-                  setActiveChart(2);
-               }}>Utilization Rate</Button>
+               }}>Stable vs Variable APR</Button>
           </Button.Group><Spacer y={2} />
 
           {activeChart== 0 ? <Line data={data0} width={50} height={20} /> : ""}

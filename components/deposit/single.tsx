@@ -25,7 +25,7 @@ import  'chart.js/auto'
 import { Chart,Line }            from 'react-chartjs-2'
 
 
-export const SingleView = ({onChange} : {onChange:any}) => {
+export const SingleDeposit = ({onChange} : {onChange:any}) => {
   const { setVisible, bindings } = useModal();
    const [activeToken, setActiveToken] = useState(0);
    const [activeChart, setActiveChart] = useState(0);
@@ -66,47 +66,53 @@ export const SingleView = ({onChange} : {onChange:any}) => {
      <><Container css={{textAlign: "center"}}>
           <Button auto ghost color="secondary" css={{position:"absolute"}} onClick={() => {
                   onChange(0);
-               }}>Back to all markets</Button>
+               }}>Back to all</Button>
           <Text id="modal-title" size={18}>
-            Reserve status for  {tokenList[activeToken].ticker} 
+            Deposit  {tokenList[activeToken].ticker} 
           </Text>
        <Spacer y={2} />
       <Table bordered shadow={false} aria-label="My Markets" css={{height: "auto",minWidth: "100",textAlign:"start"}}>
          <Table.Header>
            <Table.Column>0x8..8D3</Table.Column>
-           <Table.Column>Total Borrowed</Table.Column>
-           <Table.Column>Liq Available</Table.Column>
-           <Table.Column>Status</Table.Column>
+           <Table.Column>Wallet Balance</Table.Column>
+           <Table.Column>Deposited</Table.Column>
+           <Table.Column>Risk Status</Table.Column>
          </Table.Header>
 
          <Table.Body>
            <Table.Row key="1">
-             <Table.Cell>{tokenList[activeToken].ticker} Pool</Table.Cell>
+             <Table.Cell>Your wallet</Table.Cell>
              <Table.Cell>781.51M</Table.Cell>
              <Table.Cell>448.77M</Table.Cell>
-             <Table.Cell><Progress value={65} shadow color="secondary" status="secondary" /></Table.Cell>
+             <Table.Cell><Progress value={20} shadow color="error" status="secondary" /></Table.Cell>
            </Table.Row>
          </Table.Body>
       </Table>
        <Spacer y={1} />
        <Grid.Container gap={2} justify="center" css={{paddingLeft:"2.5em"}}>
-          <Grid xs={4}>
-            <Card css={{ mw: "330px" }}>
+          <Grid xs={6}>
+            <Card >
               <Card.Header>
                 <Text b>Deposit</Text>
               </Card.Header>
               <Card.Divider />
               <Card.Body css={{ py: "$10" }}>
-                <Text>Deposit APY<Text css={{ float:"right" }}>2.01%</Text></Text>
-                <Text>Deposit APR<Text css={{ float:"right" }}>1.23%</Text></Text>
+                <Text>Utilization Rate<Text css={{ float:"right" }}>45.92%</Text></Text>
+                <Text>Available liquidity<Text css={{ float:"right" }}>1,452,822.81 {tokenList[activeToken].ticker} </Text></Text>
+                <Text>Deposit APY<Text css={{ float:"right" }}>0.03%</Text></Text>
+                <Text>Asset price<Text css={{ float:"right" }}>1 USD</Text></Text>
+                <Text>Can be collateral<Text css={{ float:"right" }} color="error">No</Text></Text>
               </Card.Body>
-              <Card.Divider />
-              <Card.Footer>
+              <Card.Footer >
                 <Row justify="flex-end">
-                  <Button size="sm" light>
-                    Deposit
-                  </Button>
-                  <Button size="sm">Withdraw</Button>
+                  <Input 
+                  size="md"
+                  css={{  width:"inherit"}}
+                  bordered
+                    labelRight={tokenList[activeToken].ticker}  
+                    placeholder="Deposit Amount (Max 781.51M)" 
+                  />
+                  <Button css={{marginLeft:"1em"}} color="secondary" size="md">Deposit</Button>
                 </Row>
               </Card.Footer>
             </Card>
@@ -114,58 +120,24 @@ export const SingleView = ({onChange} : {onChange:any}) => {
           <Grid xs={4}>
             <Card css={{ mw: "330px" }}>
               <Card.Header>
-                <Text b>Stable borrowing</Text>
+                <Text b>Borrow Statistics</Text>
               </Card.Header>
               <Card.Divider />
               <Card.Body css={{ py: "$10" }}>
-                <Text>Borrow APY<Text css={{ float:"right" }}>2.01%</Text></Text>
-                <Text>Borrow APR<Text css={{ float:"right" }}>1.23%</Text></Text>
-                <Text>Share<Text css={{ float:"right" }}>1.7%</Text></Text>
+                <Text>Maximum LTV<Text css={{ float:"right" }}>-</Text></Text>
+                <Text>Liquidation threshold<Text css={{ float:"right" }}>-</Text></Text>
+                <Text>Liquidation penalty<Text css={{ float:"right" }}>-</Text></Text>
+              <Card.Divider css={{ my: "$10" }}/>
               </Card.Body>
-              <Card.Divider />
-              <Card.Footer>
-                <Row justify="flex-end">
-                  <Button size="sm" color="secondary">
-                    Borrow
-                  </Button>
-                </Row>
-              </Card.Footer>
-            </Card>
-          </Grid>
-          <Grid xs={4}>
-            <Card css={{ mw: "330px" }}>
-              <Card.Header>
-                <Text b>Variable borrowing</Text>
-              </Card.Header>
-              <Card.Divider />
-              <Card.Body css={{ py: "$10" }}>
-                <Text>Borrow APY<Text css={{ float:"right" }}>2.01%</Text></Text>
-                <Text>Borrow APR<Text css={{ float:"right" }}>1.23%</Text></Text>
-                <Text>Share<Text css={{ float:"right" }}>98.3%</Text></Text>
-              </Card.Body>
-              <Card.Divider />
-              <Card.Footer>
-                <Row justify="flex-end">
-                  <Button size="sm" color="secondary">
-                    Borrow
-                  </Button>
-                </Row>
-              </Card.Footer>
             </Card>
           </Grid>
         </Grid.Container>
        
        <Spacer y={2} />
-          <Button.Group auto color="gradient" ghost>
+          <Button.Group auto color="gradient" solid>
             <Button onClick={() => {
                   setActiveChart(0);
-               }}>Stable vs Variable</Button>
-            <Button onClick={() => {
-                  setActiveChart(1);
-               }}>Deposit APR</Button>
-            <Button onClick={() => {
-                  setActiveChart(2);
-               }}>Utilization Rate</Button>
+               }}>Stable vs Variable APR</Button>
           </Button.Group><Spacer y={2} />
 
           {activeChart== 0 ? <Line data={data0} width={50} height={20} /> : ""}
