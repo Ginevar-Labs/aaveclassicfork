@@ -1,7 +1,6 @@
-import {Divider, Grid, Text} from '@nextui-org/react';
+import {Button, Divider, Input, Text, Spacer} from '@nextui-org/react';
 import React from 'react';
-import {BoxIcon} from '../icons/BoxIcon';
-import {FeatureIcon} from '../icons/FeatureIcon';
+import {CheckIcon} from '../icons/CheckIcon';
 import {Box} from '../styles/box';
 import {Flex} from '../styles/flex';
 
@@ -9,120 +8,107 @@ export const Features1 = () => {
    return (
       <>
          <Flex
-            direction={'column'}
             css={{
-               'gap': '1rem',
-               'pt': '$20',
+               'gap': '$3',
+               'px': '$20',
+               'flexDirection': 'column',
+               'alignContent': 'center',
                'justifyContent': 'center',
                'alignItems': 'center',
-               'px': '$6',
+               'width': '100%',
                '@sm': {
-                  justifyContent: 'space-around',
-                  px: '$32',
                   flexDirection: 'row',
-               },
-               '@md': {
-                  px: '$64',
+                  mt: '$20',
                },
             }}
+            justify={'center'}
          >
-            <Flex direction="column">
-               <Text span css={{color: '$blue600'}}>
-                  Awesome Feature
-               </Text>
-               <Text h3>Your title here</Text>
-               <Text
-                  span
+            <Box
+               css={{
+                  pt: '$13',
+
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '$5',
+               }}
+            >
+               <Box
                   css={{
-                     maxWidth: '400px',
-                     color: '$accents8',
+                     maxWidth: '600px',
                   }}
                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  condimentum, nisl ut aliquam lacinia, nisl nisl aliquet nisl,
-                  nec tincidunt nisl lorem eu nunc. Sed euismod, nisl ut aliquam
-                  lacinia,
+                  <Text
+                     h1
+                     css={{
+                        display: 'inline',
+                     }}
+                  >Multichain, secure{' '}
+                  </Text>
+                  <Text
+                     h1
+                     css={{
+                        display: 'inline',
+                     }}
+                     color="primary"
+                  >
+                     lending protocol
+                  </Text>
+               </Box>
+
+               <Text
+                  css={{
+                     color: '$accents8',
+                     maxWidth: '400px',
+                  }}
+                  size={'$lg'}
+                  span
+               >
+                  Earn interest, borrow assets, and build applications on top of ZkSynz and Arbitrum chains
                </Text>
 
                <Flex
                   css={{
-                     py: '$10',
-                     gap: '$5',
+                     gap: '$8',
+                     pt: '$4',
                   }}
+                  wrap={'wrap'}
                >
-                  <BoxIcon />
-                  <Flex direction={'column'}>
-                     <Text h4 weight={'medium'}>
-                        Your title here
-                     </Text>
-                     <Text
-                        span
-                        css={{
-                           maxWidth: '400px',
-                           color: '$accents8',
-                        }}
-                     >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed condimentum, nisl ut aliquam lacinia, nisl nisl
-                        aliquet nisl,
-                     </Text>
+                  <Text
+                    h1
+                    size={50}
+                    css={{
+                      textGradient: "45deg, $blue600 -20%, $pink600 50%",
+                      'mb':"-0.5em"
+                    }}
+                    weight="bold"
+                  >
+                    $ 8,504,535,619.55
+                  </Text>
+                  <Flex
+                     css={{
+                        color: '$accents7',
+                        alignItems: 'center',
+                      textGradient: "45deg, $blue600 -20%, $pink600 50%",
+                     }}
+                  >
+                     of liquidity locked in ArbAAVE across markets and 2 chains
                   </Flex>
                </Flex>
-               <Flex
-                  css={{
-                     py: '$10',
-                     gap: '$5',
-                  }}
-               >
-                  <BoxIcon />
-                  <Flex direction={'column'}>
-                     <Text h4 weight={'medium'}>
-                        Your title here
-                     </Text>
-                     <Text
-                        span
-                        css={{
-                           maxWidth: '400px',
-                           color: '$accents8',
-                        }}
-                     >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed condimentum, nisl ut aliquam lacinia, nisl nisl
-                        aliquet nisl,
-                     </Text>
-                  </Flex>
-               </Flex>
-               <Flex
-                  css={{
-                     py: '$10',
-                     gap: '$5',
-                  }}
-               >
-                  <BoxIcon />
-                  <Flex direction={'column'}>
-                     <Text h4 weight={'medium'}>
-                        Your title here
-                     </Text>
-                     <Text
-                        span
-                        css={{
-                           maxWidth: '400px',
-                           color: '$accents8',
-                        }}
-                     >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed condimentum, nisl ut aliquam lacinia, nisl nisl
-                        aliquet nisl,
-                     </Text>
-                  </Flex>
-               </Flex>
-            </Flex>
-            <Flex align={'center'}>
-               <FeatureIcon />
-            </Flex>
+            </Box>
+            <Box
+               css={{
+                  '& img': {
+                     width: '775px',
+                     objectFit: 'contain',
+                  },
+               }}
+            >
+               <img src="36.png" />
+            </Box>
          </Flex>
+            <Spacer y={2}/>
          <Divider
-            css={{position: 'absolute', inset: '0p', left: '0', mt: '$5'}}
+            css={{position: 'absolute', inset: '0p', left: '0', mt: '$10'}}
          />
       </>
    );

@@ -1,4 +1,4 @@
-import {Button, Divider, Grid, Text} from '@nextui-org/react';
+import {Button, Divider, Grid, Text, Spacer, Image} from '@nextui-org/react';
 import React from 'react';
 import {AcmeLogo} from '../navbar/logo';
 import {Flex} from '../styles/flex';
@@ -18,19 +18,19 @@ export const Trusted = () => {
             }}
          >
             <Text h2 css={{textAlign: 'center'}}>
-               Trusted by over 10000+ customers
+               Trusted by leading audits firms
             </Text>
             <Text
                css={{
                   color: '$accents8',
                   maxWidth: '800px',
                   textAlign: 'center',
+                  fontSize:"18px"
                }}
                weight="normal"
                size={'$lg'}
             >
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-               eiusmod tempor incididunt ut labore et dolore magna aliqua.
+               With audits by leading firms as a top riority, security of the protocol is our highest priority.
             </Text>
             <Grid.Container
                gap={6}
@@ -48,65 +48,30 @@ export const Trusted = () => {
             >
                <Grid sm={3} justify="center">
                   <Flex align={'center'} justify={'center'}>
-                     <AcmeLogo />
+                     
                      <Text weight={'semibold'} span size={'$lg'}>
-                        Company 1
+                        OpenZeppelin
                      </Text>
                   </Flex>
                </Grid>
                <Grid sm={3} justify="center">
                   <Flex align={'center'}>
-                     <AcmeLogo />{' '}
                      <Text weight={'semibold'} span size={'$lg'}>
-                        Company 2
+                        Certora
                      </Text>
                   </Flex>
                </Grid>
                <Grid sm={3} justify="center">
                   <Flex align={'center'}>
-                     <AcmeLogo />{' '}
                      <Text weight={'semibold'} span size={'$lg'}>
-                        Company 3
+                        PeckShield
                      </Text>
                   </Flex>
                </Grid>
                <Grid sm={3} justify="center">
                   <Flex align={'center'}>
-                     <AcmeLogo />{' '}
                      <Text weight={'semibold'} span size={'$lg'}>
-                        Company 4
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 5
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 6
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 7
-                     </Text>
-                  </Flex>
-               </Grid>
-               <Grid sm={3} justify="center">
-                  <Flex align={'center'}>
-                     <AcmeLogo />{' '}
-                     <Text weight={'semibold'} span size={'$lg'}>
-                        Company 8
+                        Sigmaprime
                      </Text>
                   </Flex>
                </Grid>
