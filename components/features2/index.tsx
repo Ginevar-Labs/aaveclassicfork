@@ -28,20 +28,18 @@ export const Features2 = () => {
          >
             <Flex direction="column" align={'center'}>
                <Text span css={{color: '$blue600'}}>
-                  Awesome Feature
+                  Treasury Rewards
                </Text>
-               <Text h3>Your title here</Text>
+               <Text h3>Earn fees from multiple sources</Text>
                <Text
                   span
                   css={{
                      maxWidth: '400px',
                      color: '$accents8',
+                     textAlign:"center"
                   }}
                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  condimentum, nisl ut aliquam lacinia, nisl nisl aliquet nisl,
-                  nec tincidunt nisl lorem eu nunc. Sed euismod, nisl ut aliquam
-                  lacinia,
+                  The ArbAAVE treasury is composed of the ecosystem reserve (stashed tokens) and treasury collectors which earn fees from the following ways.
                </Text>
 
                <Flex
@@ -57,10 +55,9 @@ export const Features2 = () => {
                         gap: '$5',
                      }}
                   >
-                     <BoxIcon />
                      <Flex direction={'column'}>
                         <Text h4 weight={'medium'}>
-                           Your title here
+                           Reserve Factoring
                         </Text>
                         <Text
                            span
@@ -69,9 +66,7 @@ export const Features2 = () => {
                               color: '$accents8',
                            }}
                         >
-                           Lorem ipsum dolor sit amet, consectetur adipiscing
-                           elit. Sed condimentum, nisl ut aliquam lacinia, nisl
-                           nisl aliquet nisl,
+                           Borrowers paying protocol interest to treasury stakeholders
                         </Text>
                      </Flex>
                   </Flex>
@@ -81,10 +76,9 @@ export const Features2 = () => {
                         gap: '$5',
                      }}
                   >
-                     <BoxIcon />
                      <Flex direction={'column'}>
                         <Text h4 weight={'medium'}>
-                           Your title here
+                           Liquidity fees
                         </Text>
                         <Text
                            span
@@ -93,9 +87,29 @@ export const Features2 = () => {
                               color: '$accents8',
                            }}
                         >
-                           Lorem ipsum dolor sit amet, consectetur adipiscing
-                           elit. Sed condimentum, nisl ut aliquam lacinia, nisl
-                           nisl aliquet nisl,
+                           Both collateral distribution bonus and instant transaction fees from users
+                        </Text>
+                     </Flex>
+                  </Flex>
+
+                  <Flex
+                     css={{
+                        py: '$10',
+                        gap: '$5',
+                     }}
+                  >
+                     <Flex direction={'column'}>
+                        <Text h4 weight={'medium'}>
+                           Bridging Fees (upcoming)
+                        </Text>
+                        <Text
+                           span
+                           css={{
+                              maxWidth: '325px',
+                              color: '$accents8',
+                           }}
+                        >
+                           Automatic distribution and swap of collateral from  within the treasury
                         </Text>
                      </Flex>
                   </Flex>

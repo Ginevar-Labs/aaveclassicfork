@@ -49,6 +49,8 @@ const Home: NextPage = () => {
             <Features1 />
             <Plans />
             <Trusted />
+            <Features2 />
+            <Features3 />
             <TopMarkets />
             <Footer />
          </Box>

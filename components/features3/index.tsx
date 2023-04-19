@@ -1,4 +1,4 @@
-import {Card, Divider, Text} from '@nextui-org/react';
+import {Card, Divider, Text, Spacer, Image} from '@nextui-org/react';
 import React from 'react';
 import {BoxIcon} from '../icons/BoxIcon';
 import {Box} from '../styles/box';
@@ -21,10 +21,15 @@ export const Features3 = () => {
                   pt: '$20',
                }}
             >
+               <Image css={{transform:"scale(1)"}}
+                  src="lock.svg"
+                  alt="Safety"
+                />
+                <Spacer y={2}/>
                <Text span css={{color: '$blue600'}}>
-                  Awesome Feature
+                  Safety Module
                </Text>
-               <Text h3>Your title here</Text>
+               <Text h3>Backstop for protocol insolvency</Text>
                <Text
                   span
                   css={{
@@ -33,9 +38,7 @@ export const Features3 = () => {
                      textAlign: 'center',
                   }}
                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  condimentum, nisl ut aliquam lacinia, nisl nisl aliquet nisl,
-                  nec
+                   Locked token will be used as a mitigation tool in case of a shortfall on liquidity within the money markets belonging to the ecosystem.
                </Text>
             </Flex>
             <Flex
@@ -50,13 +53,11 @@ export const Features3 = () => {
                <Card css={{mw: '500px'}}>
                   <Card.Body>
                      <Flex css={{gap: '0.5rem'}}>
-                        <BoxIcon />
                         <Flex direction={'column'}>
-                           <Text h5>Your Title</Text>
-                           <Text span>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Sed condimentum, nisl ut aliquam lacinia,
-                              nisl nisl aliquet nisl, nec
+                           <Text h5>Tokens in stash</Text>
+                           <Text h1
+                             size={25}>
+                              ARB, ETH, stETH, DAI, USDC, MATIC
                            </Text>
                         </Flex>
                      </Flex>
@@ -65,53 +66,17 @@ export const Features3 = () => {
                <Card css={{mw: '500px'}}>
                   <Card.Body>
                      <Flex css={{gap: '0.5rem'}}>
-                        <BoxIcon />
                         <Flex direction={'column'}>
-                           <Text h5>Your Title</Text>
-                           <Text span>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Sed condimentum, nisl ut aliquam lacinia,
-                              nisl nisl aliquet nisl, nec
-                           </Text>
-                        </Flex>
-                     </Flex>
-                  </Card.Body>
-               </Card>
-            </Flex>
-            <Flex
-               align={'center'}
-               wrap={'wrap'}
-               justify={'center'}
-               css={{
-                  gap: '1rem',
-                  pt: '$8',
-               }}
-            >
-               <Card css={{mw: '500px'}}>
-                  <Card.Body>
-                     <Flex css={{gap: '0.5rem'}}>
-                        <BoxIcon />
-                        <Flex direction={'column'}>
-                           <Text h5>Your Title</Text>
-                           <Text span>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Sed condimentum, nisl ut aliquam lacinia,
-                              nisl nisl aliquet nisl, nec
-                           </Text>
-                        </Flex>
-                     </Flex>
-                  </Card.Body>
-               </Card>
-               <Card css={{mw: '500px'}}>
-                  <Card.Body>
-                     <Flex css={{gap: '0.5rem'}}>
-                        <BoxIcon />
-                        <Flex direction={'column'}>
-                           <Text h5>Your Title</Text>
-                           <Text span>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit. Sed condimentum, nisl ut aliquam lacinia,
-                              nisl nisl aliquet nisl, nec
+                           <Text h5>Total Reserves</Text>
+                           <Text
+                             h1
+                             size={25}
+                             css={{
+                               textGradient: "45deg, $blue600 -20%, $pink600 50%"
+                             }}
+                             weight="bold"
+                           >
+                             $ 34,535,619.55
                            </Text>
                         </Flex>
                      </Flex>
